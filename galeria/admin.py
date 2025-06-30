@@ -1,3 +1,9 @@
 from django.contrib import admin
+from galeria.models import Photograph
 
-# Register your models here.
+class listingPhotographs(admin.ModelAdmin):
+    list_display = ("id", "name", "legend")
+    list_display_links = ("id", "name")
+    search_fields = ("name",)
+
+admin.site.register(Photograph, listingPhotographs)
